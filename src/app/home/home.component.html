@@ -1,32 +1,38 @@
 <div class="home-page">
 
-  <div class="banner" *showAuthed="false">
+  <!-- <div class="banner" *showAuthed="false">
     <div class="container">
       <h1 class="logo-font">conduit</h1>
       <p>A place to share your <i>Angular 2</i> knowledge.</p>
     </div>
-  </div>
+  </div> -->
 
   <div class="container page">
     <div class="row">
 
-      <div class="col-md-9">
+      <div class="col-md-12">
         <div class="feed-toggle">
           <ul class="nav nav-pills outline-active">
             <li class="nav-item">
-              <a class="nav-link"
-                 [ngClass]="{'active': listConfig.type === 'feed'}"
-                 (click)="setListTo('feed')">
-                 Your Feed
+              <a class="nav-link" [ngClass]="{'active': listConfig.type === 'all' && !listConfig.filters.tag}" (click)="setListTo('all')">
+                Trip List
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"
-                 [ngClass]="{'active': listConfig.type === 'all' && !listConfig.filters.tag}"
-                 (click)="setListTo('all')">
-                 Global Feed
+                <a class="nav-link" [ngClass]="{'active': listConfig.type === 'all' && !listConfig.filters.tag}" (click)="setListTo('all')">
+                  Timeline
+                </a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" [ngClass]="{'active': listConfig.type === 'feed'}" (click)="setListTo('feed')">
+                 Your Feed
               </a>
             </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" [ngClass]="{'active': listConfig.type === 'all' && !listConfig.filters.tag}" (click)="setListTo('all')">
+                 Global Feed
+              </a>
+            </li> -->
             <li class="nav-item" [hidden]="!listConfig.filters.tag">
               <a class="nav-link active">
                 <i class="ion-pound"></i> {{ listConfig.filters.tag }}
@@ -38,7 +44,7 @@
         <article-list [limit]="10" [config]="listConfig"></article-list>
       </div>
 
-      <div class="col-md-3">
+      <!-- <div class="col-md-3">
         <div class="sidebar">
           <p>Popular Tags</p>
 
@@ -59,7 +65,7 @@
             No tags are here... yet.
           </div>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </div>
